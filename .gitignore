@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+# Ignorar directorios de construcción de CMake
+/cmake-build-debug/
+/build/
+
+# Ignorar archivos de configuración de IDE
+*.idea/
+*.vscode/
+
+# Ignorar archivos temporales de sistemas operativos
+*.DS_Store
+Thumbs.db
