@@ -1,21 +1,27 @@
 class Solution {
 public:
-    ListNode* removeElements(ListNode* head, int val) {
-        ListNode* dummy = new ListNode(0, head);
-        ListNode* current = dummy;
+    ListNode* swapPairs(ListNode* head) {
+        if (!head || !head->next) return head;
 
-        while (current->next != nullptr) {
-            if (current->next->val == val) {
-                ListNode* temp = current->next;
-                current->next = current->next->next;
-                delete temp;
-            } else {
-                current = current->next;
+        ListNode* newHead = head->next;
+        ListNode* prev = nullptr;
+        ListNode* current = head;
+
+        while (current && current->next) {
+            ListNode* first = current;
+            ListNode* second = current->next;
+
+            first->next = second->next;
+            second->next = first;
+
+            if (prev) {
+                prev->next = second;
             }
+
+            prev = first;
+            current = first->next;
         }
 
-        ListNode* newHead = dummy->next;
-        delete dummy;
         return newHead;
     }
 };
