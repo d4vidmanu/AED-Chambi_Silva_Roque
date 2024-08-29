@@ -1,5 +1,5 @@
 /**
-* Definition for singly-linked list.
+ * Definition for singly-linked list.
  * struct ListNode {
  *     int val;
  *     ListNode *next;
@@ -16,20 +16,30 @@ public:
         ListNode* current = head;
 
         while (current && current->next) {
-            // Calculate GCD of the current node and the next node
+            // Calcular el GCD del nodo actual y el siguiente nodo
             int gcdValue = gcd(current->val, current->next->val);
 
-            // Create a new node with the GCD value
+            // Crear un nuevo nodo con el valor GCD
             ListNode* gcdNode = new ListNode(gcdValue);
 
-            // Insert the GCD node between current node and next node
+            // Insertar el nodo GCD entre el nodo actual y el siguiente nodo
             gcdNode->next = current->next;
             current->next = gcdNode;
 
-            // Move to the node after the newly inserted GCD node
+            // Moverse al nodo después del nuevo nodo GCD insertado
             current = gcdNode->next;
         }
 
         return head;
+    }
+
+private:
+    int gcd(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
     }
 };
