@@ -30,6 +30,10 @@ add_executable(ForwardListTest
         ForwardList/ForwardList.cpp
         ForwardList/ForwardList.h
         ForwardList/Tests/ForwardListTest.cpp
+        ForwardList/Tests/testing1.cpp
+        ForwardList/Tests/testing2.cpp
+        ForwardList/Tests/testing3.cpp
+        ForwardList/Tests/testing4.cpp
 )
 
 # Link the GoogleTest libraries with the test executable

@@ -1,58 +1,72 @@
-//
-// Created by David Silva on 28/08/24.
-//
-
 #include <iostream>
-#include <ForwardList/ForwardList.h>
+#include <vector>
 
+struct ListNode {
+    int val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(int x) : val(x), next(nullptr) {}
+    ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
 
-int main() {
-    ForwardList<int> list;
+class Solution {
+public:
+    ListNode* swapPairs(ListNode* head) {
+        if (!head || !head->next) return head;
 
-    // Test: Verificar si la lista está vacía
-    std::cout << "¿La lista está vacía? " << (list.empty() ? "Sí" : "No") << std::endl;
+        ListNode* newHead = head->next;
+        ListNode* prev = nullptr;
+        ListNode* current = head;
 
-    // Test: Agregar elementos al frente y al final
-    list.push_front(10);
-    list.push_front(20);
-    list.push_back(30);
-    list.push_back(40);
+        while (current && current->next) {
+            ListNode* first = current;
+            ListNode* second = current->next;
 
-    // Test: Verificar el tamaño de la lista
-    std::cout << "Tamaño de la lista: " << list.size() << std::endl;
+            first->next = second->next;
+            second->next = first;
 
-    // Test: Acceder a los elementos usando front() y back()
-    std::cout << "Primer elemento (front): " << list.front() << std::endl;
-    std::cout << "Último elemento (back): " << list.back() << std::endl;
+            if (prev) {
+                prev->next = second;
+            }
 
-    // Test: Acceder a elementos por índice
-    std::cout << "Elemento en índice 0: " << list[0] << std::endl;
-    std::cout << "Elemento en índice 1: " << list[1] << std::endl;
-    std::cout << "Elemento en índice 2: " << list[2] << std::endl;
-    std::cout << "Elemento en índice 3: " << list[3] << std::endl;
+            prev = first;
+            current = first->next;
+        }
 
-    // Test: Remover elementos del frente y del final
-    std::cout << "Removiendo el primer elemento (pop_front): " << list.pop_front() << std::endl;
-    std::cout << "Nuevo primer elemento: " << list.front() << std::endl;
+        return newHead;
+    }
+};
 
-    std::cout << "Removiendo el último elemento (pop_back): " << list.pop_back() << std::endl;
-    std::cout << "Nuevo último elemento: " << list.back() << std::endl;
-
-    // Test: Verificar el tamaño de la lista después de eliminar
-    std::cout << "Tamaño de la lista después de eliminar: " << list.size() << std::endl;
-
-    // Test: Invertir la lista
-    list.reverse();
-    std::cout << "Lista después de invertir: ";
-    for (int i = 0; i < list.size(); i++) {
-        std::cout << list[i] << " ";
+void printList(ListNode* node) {
+    while (node) {
+        std::cout << node->val << " ";
+        node = node->next;
     }
     std::cout << std::endl;
+}
 
-    // Test: Limpiar la lista
-    list.clear();
-    std::cout << "¿La lista está vacía después de limpiar? " << (list.empty() ? "Sí" : "No") << std::endl;
-    std::cout << "Tamaño de la lista después de limpiar: " << list.size() << std::endl;
+ListNode* createList(const std::vector<int>& arr) {
+    if (arr.empty()) return nullptr;
+    ListNode* head = new ListNode(arr[0]);
+    ListNode* current = head;
+    for (size_t i = 1; i < arr.size(); ++i) {
+        current->next = new ListNode(arr[i]);
+        current = current->next;
+    }
+    return head;
+}
+
+int main() {
+    Solution solution;
+
+    std::vector<int> listValues = {1, 2, 3, 4};
+    ListNode* head = createList(listValues);
+
+    printList(head);
+
+    ListNode* swappedHead = solution.swapPairs(head);
+
+    printList(swappedHead);
 
     return 0;
 }
