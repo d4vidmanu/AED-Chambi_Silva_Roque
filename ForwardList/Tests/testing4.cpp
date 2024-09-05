@@ -4,17 +4,15 @@ public:
         auto comp = [](ListNode* a, ListNode* b) { return a->val > b->val; };
         priority_queue<ListNode*, vector<ListNode*>, decltype(comp)> pq(comp);
 
-        // Insertar el primer nodo de cada lista en el heap
         for (ListNode* list : lists) {
             if (list) {
                 pq.push(list);
             }
         }
 
-        ListNode dummy(0); // Nodo ficticio para simplificar el manejo de la cabeza
+        ListNode dummy(0);
         ListNode* tail = &dummy;
 
-        // Mientras haya nodos en el heap
         while (!pq.empty()) {
             ListNode* minNode = pq.top();
             pq.pop();

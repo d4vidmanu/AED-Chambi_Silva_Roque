@@ -2,14 +2,13 @@ class Solution {
 public:
     ListNode* oddEvenList(ListNode* head) {
         if (!head || !head->next) {
-            return head; // Si la lista está vacía o tiene solo un nodo
+            return head;
         }
 
-        ListNode* odd = head; // Inicialmente el primer nodo es impar
-        ListNode* even = head->next; // El segundo nodo es par
-        ListNode* evenHead = even; // Guardar la cabeza de los pares para conectarlos luego
+        ListNode* odd = head;
+        ListNode* even = head->next;
+        ListNode* evenHead = even;
 
-        // Recorre la lista mientras haya al menos un nodo par y uno impar
         while (even && even->next) {
             odd->next = even->next; // Conectar el siguiente nodo impar
             odd = odd->next; // Mover el puntero impar
