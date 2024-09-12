@@ -4,15 +4,15 @@ public:
         int n = nums.size();
         if (n < 3) return false;
 
-        int third = INT_MIN;  // El valor que correspondería al número 2 en el patrón 132
+        int third = INT_MIN;
         stack<int> st;
 
         for (int i = n - 1; i >= 0; --i) {
             if (nums[i] < third) {
-                return true;  // Encontramos el patrón
+                return true;
             }
             while (!st.empty() && nums[i] > st.top()) {
-                third = st.top();  // El nuevo valor para el "2" del patrón
+                third = st.top();
                 st.pop();
             }
             st.push(nums[i]);

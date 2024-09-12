@@ -1,16 +1,16 @@
 class MyStack {
-    queue<int> q1, q2;  // Usaremos dos colas
+    queue<int> q1, q2;
 public:
     MyStack() {
     }
 
     void push(int x) {
-        q2.push(x);  // Insertar en la cola auxiliar (q2)
-        while (!q1.empty()) {  // Transferir todos los elementos de q1 a q2
+        q2.push(x);
+        while (!q1.empty()) {
             q2.push(q1.front());
             q1.pop();
         }
-        swap(q1, q2);  // Intercambiar las colas, de modo que q1 tenga el orden correcto
+        swap(q1, q2);
     }
 
     int pop() {
