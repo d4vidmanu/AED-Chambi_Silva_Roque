@@ -1,7 +1,3 @@
-//
-// Created by LUIS FERNANDO on 12/09/2024.
-//
-
 class Solution {
 public:
     int canCompleteCircuit(vector<int>& gas, vector<int>& cost) {
