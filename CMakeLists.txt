@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.28.1)
 project(AED_Chambi_Silva_Roque)
 
 # Set C++ standard
@@ -13,9 +13,7 @@ add_executable(AED_Chambi_Silva_Roque
         ForwardList/ForwardList.cpp
         ForwardList/ForwardList.h
         main.cpp
-        "EC2/876. Middle of the Linked List.cpp"
-        EC2/tests.cpp
-        "EC2/328. Odd Even Linked List.cpp"
+        EC2/solucion2.cpp
 )
 
 # GoogleTest requires at least C++14
