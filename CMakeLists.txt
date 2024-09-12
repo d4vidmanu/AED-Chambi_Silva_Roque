@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.29)
+cmake_minimum_required(VERSION 3.28.6)
 project(AED_Chambi_Silva_Roque)
 
 # Set C++ standard
@@ -10,12 +10,13 @@ include_directories(.)
 
 # Add main executable (without test files)
 add_executable(AED_Chambi_Silva_Roque
-        ForwardList/ForwardList.cpp
-        ForwardList/ForwardList.h
         main.cpp
-        "EC2/876. Middle of the Linked List.cpp"
-        EC2/tests.cpp
-        "EC2/328. Odd Even Linked List.cpp"
+        "LeetCode/206. Reverse Linked List.h"
+        "LeetCode/225. Implement Stack using Queues.h"
+        "LeetCode/232. Implement Queue using Stacks.h"
+        "LeetCode/456. 132 Pattern.h"
+        "LeetCode/134. Gas Station.h"
+        "LeetCode/946. Validate Stack Sequences.h"
 )
 
 # GoogleTest requires at least C++14
