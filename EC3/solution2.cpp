@@ -1,50 +1,57 @@
-#include <queue>
+#include <stack>
 using namespace std;
-class MyStack {
+
+class MyQueue {
 public:
-    queue<int> q1,q2;
+    stack<int> stack1, stack2;
 
-    MyStack() {
+    MyQueue() {
 
     }
 
+    // Pusha un elemento al final de la cola.
     void push(int x) {
-
-        q2.push(x);
-
-        while(!q1.empty()){
-            q2.push(q1.front());
-            q1.pop();
-        }
-
-        swap(q1, q2);
-
+        stack1.push(x);
     }
 
+    // Remueve el elemento al frente de la cola y lo retorna.
     int pop() {
-
-        int topElement = q1.front();
-        q1.pop();
-        return topElement;
-
+        if (stack2.empty()) {
+            // Pasamos todos los elementos de stack1 a stack2
+            while (!stack1.empty()) {
+                stack2.push(stack1.top());
+                stack1.pop();
+            }
+        }
+        // Al hacer esto, el tope de stack2 es el frente de la cola
+        int frontElement = stack2.top();
+        stack2.pop();
+        return frontElement;
     }
 
-    int top() {
-        return q1.front();
-
+    // Retorna el elemento al frente de la cola.
+    int peek() {
+        if (stack2.empty()) {
+            // Pasamos todos los elementos de stack1 a stack2 si stack2 está vacío
+            while (!stack1.empty()) {
+                stack2.push(stack1.top());
+                stack1.pop();
+            }
+        }
+        return stack2.top();
     }
 
+    // Retorna si la cola está vacía o no.
     bool empty() {
-        return q1.empty();
-
+        return stack1.empty() && stack2.empty();
     }
 };
 
 /**
- * Your MyStack object will be instantiated and called as such:
- * MyStack* obj = new MyStack();
+ * Tu objeto MyQueue será instanciado y usado de esta manera:
+ * MyQueue* obj = new MyQueue();
  * obj->push(x);
  * int param_2 = obj->pop();
- * int param_3 = obj->top();
+ * int param_3 = obj->peek();
  * bool param_4 = obj->empty();
  */
