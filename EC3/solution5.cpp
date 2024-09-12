@@ -6,7 +6,7 @@ class Solution {
 public:
     bool find132pattern(vector<int>& nums) {
         int n = nums.size();
-        if (n < 3) return false; // No hay suficientes elementos para formar el patrón
+        if (n < 3) return false;
 
         stack<int> st;  // Pila para almacenar candidatos a nums[k]
         int second = INT_MIN; // El mejor candidato actual para nums[k]
