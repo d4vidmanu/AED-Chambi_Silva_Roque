@@ -15,8 +15,9 @@ add_executable(AED_Chambi_Silva_Roque
         "LeetCode/225. Implement Stack using Queues.h"
         "LeetCode/232. Implement Queue using Stacks.h"
         "LeetCode/456. 132 Pattern.h"
-        "LeetCode/134. Gas Station.h"
-        "LeetCode/946. Validate Stack Sequences.h"
+        EvaluacionContinua/EC4/solution1.cpp
+        EvaluacionContinua/EC4/solution2.cpp
+        EvaluacionContinua/EC4/solution5.cpp
 )
 
 # GoogleTest requires at least C++14
