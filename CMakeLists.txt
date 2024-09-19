@@ -21,6 +21,7 @@ add_executable(AED_Chambi_Silva_Roque
         "LeetCode/12. Integer to Roman.h"
         "LeetCode/3. Longest Substring Without Repeating Characters.h"
         "LeetCode/161. One Edit Distance.h"
+        "LeetCode/13. Roman to Integer.cpp"
 )
 
 # GoogleTest requires at least C++14
