@@ -20,6 +20,16 @@ add_executable(AED_Chambi_Silva_Roque
         "LeetCode/456. 132 Pattern.h"
         "LeetCode/739. Daily Temperatures.h"
         "LeetCode/347. Top K Frequent Elements.h"
+        "LeetCode/Binary Tree/Easy/108. Convert Sorted Array to Binary Search Tree.cpp"
+        "LeetCode/Binary Tree/Easy/501. Find Mode in Binary Search Tree.cpp"
+        "LeetCode/Binary Tree/Easy/530. Minimum Absolute Difference in BST.cpp"
+        "LeetCode/Binary Tree/Easy/653. Two Sum IV - Input is a BST.cpp"
+        "LeetCode/Binary Tree/Easy/700. Search in a Binary Search Tree.cpp"
+        "LeetCode/Binary Tree/Easy/783. Minimum Distance Between BST Nodes.cpp"
+        "LeetCode/Binary Tree/Easy/110. Balanced Binary Tree.cpp"
+        "LeetCode/Binary Tree/Medium/450. Delete Node in a BST.cpp"
+        "LeetCode/Binary Tree/Medium/508. Most Frequent Subtree Sum.cpp"
+        "LeetCode/Binary Tree/Medium/652. Find Duplicate Subtrees.cpp"
 )
 
 #[[
