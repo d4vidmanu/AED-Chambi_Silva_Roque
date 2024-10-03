@@ -2,8 +2,11 @@ cmake_minimum_required(VERSION 3.28.6)
 project(AED_Chambi_Silva_Roque)
 
 # Set C++ standard
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+# Specify that we are building a console application
+set(CMAKE_EXE_LINKER_FLAGS "-Wl,-subsystem,console")
 
 # Include directories
 include_directories(.)
@@ -15,10 +18,11 @@ add_executable(AED_Chambi_Silva_Roque
         "LeetCode/225. Implement Stack using Queues.h"
         "LeetCode/232. Implement Queue using Stacks.h"
         "LeetCode/456. 132 Pattern.h"
-        "LeetCode/134. Gas Station.h"
-        "LeetCode/946. Validate Stack Sequences.h"
+        "LeetCode/739. Daily Temperatures.h"
+        "LeetCode/347. Top K Frequent Elements.h"
 )
 
+#[[
 # GoogleTest requires at least C++14
 include(FetchContent)
 FetchContent_Declare(
@@ -42,3 +46,4 @@ add_executable(ForwardListTest
 
 # Link the GoogleTest libraries with the test executable
 target_link_libraries(ForwardListTest gtest gtest_main)
+]]
