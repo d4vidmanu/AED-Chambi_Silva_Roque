@@ -22,6 +22,15 @@ add_executable(AED_Chambi_Silva_Roque
         "LeetCode/3. Longest Substring Without Repeating Characters.h"
         "LeetCode/161. One Edit Distance.h"
         "LeetCode/13. Roman to Integer.cpp"
+        "LeetCode/Graphs/133. Clone Graph.cpp"
+        "LeetCode/Graphs/207. Course Schedule.cpp"
+        "LeetCode/Graphs/547. Number of Provinces.cpp"
+        "LeetCode/Graphs/785. Is Graph Bipartite.cpp"
+        "LeetCode/Graphs/841. Keys and Rooms.cpp"
+        "LeetCode/Graphs/1042. Flower Planting With No Adjacent.cpp"
+        "LeetCode/Graphs/997. Find the Town Judge.cpp"
+        "LeetCode/Graphs/1791. Find Center of Star Graph.cpp"
+        "LeetCode/Graphs/1971. Find if Path Exists in Graph.cpp"
 )
 
 # GoogleTest requires at least C++14
