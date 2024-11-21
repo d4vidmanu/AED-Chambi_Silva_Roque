@@ -1,19 +1,22 @@
 class Solution {
 public:
     int trap(vector<int>& height) {
-        int left = 0, right = height.size() - 1;
-        int maxLeft = 0, maxRight = 0, water = 0;
+        stack<int> st; // Pila para almacenar índices
+        int water = 0;
 
-        while (left <= right) {
-            if (height[left] < height[right]) {
-                maxLeft = max(maxLeft, height[left]);
-                water += maxLeft - height[left];
-                ++left;
-            } else {
-                maxRight = max(maxRight, height[right]);
-                water += maxRight - height[right];
-                --right;
+        for (int i = 0; i < height.size(); ++i) {
+            // Mientras la pila no esté vacía y encontremos un valle (pared más alta al lado derecho)
+            while (!st.empty() && height[i] > height[st.top()]) {
+                int top = st.top();
+                st.pop();
+
+                if (st.empty()) break; // No hay pared izquierda para formar un valle
+
+                int distance = i - st.top() - 1; // Distancia horizontal entre paredes
+                int boundedHeight = min(height[i], height[st.top()]) - height[top]; // Altura del agua
+                water += distance * boundedHeight; // Área de agua atrapada
             }
+            st.push(i); // Agregar el índice actual
         }
 
         return water;
